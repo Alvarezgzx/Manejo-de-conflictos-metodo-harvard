@@ -40,7 +40,390 @@
         .timeline-marker {
             position: absolute;
             left: -0.7rem;
+            top: 0;<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso Práctico: Método Harvard de Negociación en el Aula</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F9FB;
+            color: #073B4C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2.5rem; 
+        }
+        .timeline-item:not(:last-child) {
+            border-left: 2px solid #118AB2;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: -0.7rem;
             top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 9999px;
+            background-color: #FFD166;
+            border: 3px solid #118AB2;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-[#118AB2] text-white text-center p-8 shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-black">Resolución de Conflictos en el Aula</h1>
+        <p class="text-lg md:text-xl mt-2 font-light">Un Caso Práctico con el Método de Negociación de Harvard</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="escenario" class="bg-white rounded-lg shadow-md p-6 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-[#073B4C] mb-4">El Conflicto: Tensión en la Clase de Historia</h2>
+            <p class="text-lg mb-4 max-w-3xl mx-auto">
+                En una clase de secundaria, el profesor Harrison está explicando un tema complejo. Leo, un estudiante, interrumpe constantemente y finalmente grita: "¡Esto es estúpido y no sirve para nada!". Su postura es agresiva y desafiante, creando una tensión palpable en el salón. El enfoque tradicional podría llevar a un castigo directo, pero esto raramente soluciona la raíz del problema.
+            </p>
+            <div class="bg-red-50 border-l-4 border-[#FF6B6B] p-4 mt-6">
+                <p class="font-bold text-[#FF6B6B]">Posición del estudiante (Leo): "La clase es una pérdida de tiempo."</p>
+                <p class="font-bold text-[#073B4C] mt-2">Posición del profesor (Harrison): "El estudiante debe respetar las reglas y no interrumpir."</p>
+            </div>
+        </section>
+
+        <section id="principios" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Los 4 Principios del Método Harvard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-[#06D6A0]">
+                    <div class="text-4xl mb-2">①</div>
+                    <h3 class="text-xl font-bold mb-2">Separar a las Personas del Problema</h3>
+                    <p class="text-sm">Abordar el problema juntos, no atacarse mutuamente. Fomenta la colaboración en lugar de la confrontación.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-[#FFD166]">
+                    <div class="text-4xl mb-2">②</div>
+                    <h3 class="text-xl font-bold mb-2">Centrarse en los Intereses, no en las Posiciones</h3>
+                    <p class="text-sm">Explorar las motivaciones, necesidades y miedos subyacentes que impulsan las posturas iniciales de cada parte.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-[#FF6B6B]">
+                    <div class="text-4xl mb-2">③</div>
+                    <h3 class="text-xl font-bold mb-2">Generar Opciones de Mutuo Beneficio</h3>
+                    <p class="text-sm">Realizar una lluvia de ideas creativas para encontrar soluciones que satisfagan los intereses de ambas partes.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-[#073B4C]">
+                    <div class="text-4xl mb-2">④</div>
+                    <h3 class="text-xl font-bold mb-2">Insistir en Criterios Objetivos</h3>
+                    <p class="text-sm">Basar el acuerdo en principios y estándares justos e independientes de la voluntad de las partes (ej. reglas, normas).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicacion" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Aplicando el Método: Paso a Paso</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-[#118AB2] mb-3">Paso 1: Separar a la Persona del Problema</h3>
+                    <p class="mb-4">El profesor Harrison pide a Leo hablar en privado después de clase. En lugar de decir "Tu comportamiento es inaceptable", dice: "Leo, noté que estás frustrado. Quiero entender qué pasa para que la clase funcione para ambos. Estamos tú y yo contra este problema". Este cambio de lenguaje transforma el conflicto de un enfrentamiento a un desafío colaborativo.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center h-full">
+                    <div class="text-center">
+                        <span class="text-5xl">👨‍🏫</span>
+                        <span class="text-2xl mx-4 font-bold text-[#06D6A0]">+</span>
+                        <span class="text-5xl">🧑‍🎓</span>
+                    </div>
+                    <div class="text-5xl my-2 text-[#FF6B6B]">⚔️</div>
+                    <div class="bg-[#073B4C] text-white p-3 rounded-lg text-center">
+                        <span class="text-xl font-bold">EL PROBLEMA</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-[#118AB2] mb-3 text-center">Paso 2: Descubrir los Intereses detrás de la Posición</h3>
+                    <p class="text-center mb-4 max-w-3xl mx-auto">Harrison le pregunta a Leo por qué siente que la clase es una pérdida de tiempo. Tras una conversación calmada, Leo revela sus verdaderos intereses: no entiende el material, siente vergüenza de preguntar frente a sus amigos y teme reprobar, lo que podría llevar a que lo saquen del equipo de fútbol.</p>
+                    <div class="chart-container">
+                        <canvas id="interesesChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm mt-2 text-gray-600">El gráfico ilustra cómo la "posición" (el grito en clase) es solo la punta del iceberg, impulsada por intereses más profundos y complejos.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-[#118AB2] mb-3">Paso 3: Generar Opciones de Mutuo Beneficio</h3>
+                    <p class="mb-4">Juntos, hacen una lluvia de ideas. El interés de Harrison es un ambiente de aprendizaje respetuoso y el éxito de sus alumnos. El interés de Leo es entender, aprobar y permanecer en el equipo. Consideran varias opciones sin juzgarlas inicialmente.</p>
+                    <div class="chart-container h-auto md:h-96">
+                        <canvas id="opcionesChart"></canvas>
+                    </div>
+                     <p class="text-center text-sm mt-2 text-gray-600">Comparan el impacto potencial de cada solución en los intereses clave de ambas partes.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                     <h3 class="text-2xl font-bold text-[#118AB2] mb-3">Paso 4: Usar Criterios Objetivos</h3>
+                     <p class="mb-4">Deciden combinar las opciones más prometedoras basándose en criterios justos: las reglas de la escuela, el programa de estudios y el sistema de tutorías existente.</p>
+                    <div class="relative">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <h4 class="font-bold">Acuerdo de Comportamiento</h4>
+                            <p class="text-sm">Acuerdan una señal no verbal discreta para cuando Leo se sienta perdido, evitando interrupciones públicas (Criterio: Reglas del aula).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <h4 class="font-bold">Plan de Apoyo Académico</h4>
+                            <p class="text-sm">Leo asistirá a tutorías dos veces por semana y el profesor le dará material de apoyo simplificado (Criterio: Programa de tutorías de la escuela).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <h4 class="font-bold">Seguimiento Semanal</h4>
+                            <p class="text-sm">Breves reuniones de 5 minutos los viernes para revisar el progreso, ajustar el plan y asegurar que ambos cumplen su parte (Criterio: Plan de evaluación continua).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="resultados" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">El Resultado: Un Cambio Positivo</h2>
+            <p class="text-center mb-6 max-w-3xl mx-auto">Al aplicar el método, no solo se resolvió el conflicto inmediato, sino que se transformó la relación. Leo se sintió escuchado y apoyado, mientras que el profesor Harrison mantuvo la autoridad y fomentó un ambiente de aprendizaje más inclusivo. Los resultados medibles demuestran el éxito del enfoque.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="chart-container md:max-w-4xl mx-auto h-auto md:h-[400px]">
+                    <canvas id="resultadosChart"></canvas>
+                </div>
+                 <p class="text-center text-sm mt-4 text-gray-600">Este gráfico compara las métricas clave del aula antes y después de la intervención, mostrando una mejora significativa en el comportamiento, la participación y el rendimiento.</p>
+            </div>
+        </section>
+
+        <section id="podcast" class="bg-white rounded-lg shadow-md p-6 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-[#073B4C] mb-4">Podcast: El Método en Acción</h2>
+            <p class="text-lg mb-4 max-w-3xl mx-auto">
+                Escucha un análisis más profundo sobre la negociación basada en principios en el entorno educativo.
+            </p>
+            <audio controls class="w-full max-w-xl mx-auto mt-4">
+                <!-- 
+                  NOTA IMPORTANTE: El siguiente enlace es un audio de muestra para que el reproductor funcione.
+                  DEBES REEMPLAZARLO con el enlace a tu propio archivo "podcast_negociacion.mp3" una vez que lo subas a GitHub.
+                  El enlace final debería verse así: https://raw.githubusercontent.com/Alvarezgzx/Manejo-de-conflictos-metodo-harvard/main/podcast_negociacion.mp3
+                -->
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p class="text-sm text-gray-500 mt-3 italic">Toma notas de los aspectos que consideres más importantes</p>
+        </section>
+
+        <footer class="bg-[#073B4C] text-white rounded-lg shadow-md p-6 mt-12">
+            <h3 class="text-2xl font-bold text-center mb-4 text-[#FFD166]">Referencias</h3>
+            <div class="text-sm text-center space-y-2 mb-6">
+                <p>Fisher, R., Ury, W. L., & Patton, B. (2011). <i>Getting to yes: Negotiating agreement without giving in</i>. Penguin Books.</p>
+                <p>Formación y Estudios. (2020, 15 de mayo). <i>Método Harvard de Negociación (Explicado)</i> [Video]. YouTube. https://www.youtube.com/watch?v=IDj1OBG5Tpw</p>
+                <p>Google. (2024). <i>Gemini</i> [Large language model]. https://gemini.google.com</p>
+                <p>Program on Negotiation at Harvard Law School. (s.f.). <i>Principled negotiation: Focus on interests to create value</i>. PON - Program on Negotiation at Harvard Law School. Recuperado el 21 de julio de 2025, de https://www.pon.harvard.edu/daily/negotiation-skills-daily/principled-negotiation-focus-interests-create-value/</p>
+            </div>
+            <div class="border-t border-gray-500 pt-4 mt-4">
+                <h4 class="text-lg font-bold text-center text-[#FFD166] mb-2">Declaración de Uso</h4>
+                <p class="text-xs text-center italic text-gray-300">
+                    Este recurso infográfico fue elaborado por Jesús Ángel Álvarez González para la materia de Taller de Negociación y Manejo de Conflictos. Se utilizó asistencia de inteligencia artificial para la síntesis de información y el diseño visual, a partir de un análisis de literatura propio y las fuentes citadas. Su propósito es estrictamente educativo.
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+<script>
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const commonTooltipConfig = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                backgroundColor: '#073B4C',
+                titleColor: '#FFFFFF',
+                bodyColor: '#FFFFFF',
+                padding: 10,
+                titleFont: { weight: 'bold' },
+                bodyFont: { size: 12 }
+            }
+        }
+    };
+    
+    function wrapLabels(label, maxLength) {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + word).length > maxLength && currentLine.length > 0) {
+                lines.push(currentLine.trim());
+                currentLine = '';
+            }
+            currentLine += word + ' ';
+        });
+        lines.push(currentLine.trim());
+        return lines;
+    }
+
+    const interesesData = {
+        labels: ['Miedo a reprobar', 'Vergüenza de preguntar', 'Presión del equipo deportivo', 'Frustración con el material'],
+        datasets: [{
+            label: 'Intereses Ocultos de Leo',
+            data: [45, 25, 20, 10],
+            backgroundColor: ['#FF6B6B', '#FFD166', '#06D6A0', '#118AB2'],
+            borderColor: '#F7F9FB',
+            borderWidth: 3
+        }]
+    };
+    const interesesCtx = document.getElementById('interesesChart').getContext('2d');
+    new Chart(interesesCtx, {
+        type: 'doughnut',
+        data: interesesData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                ...commonTooltipConfig.plugins,
+                legend: {
+                    position: 'top',
+                    labels: { color: '#073B4C' }
+                }
+            }
+        }
+    });
+
+    const opcionesLabels = [
+        'Ignorar el problema', 
+        'Castigo inmediato', 
+        'Tutorías privadas', 
+        ['Plan de estudio', 'personalizado'],
+        ['Comunicación', 'discreta en clase']
+    ].map(l => Array.isArray(l) ? l : wrapLabels(l, 16));
+
+    const opcionesData = {
+        labels: opcionesLabels,
+        datasets: [{
+            label: 'Beneficio para el Estudiante',
+            data: [1, 2, 8, 9, 7],
+            backgroundColor: '#06D6A0',
+        }, {
+            label: 'Beneficio para el Profesor',
+            data: [1, 4, 7, 8, 9],
+            backgroundColor: '#118AB2',
+        }]
+    };
+    const opcionesCtx = document.getElementById('opcionesChart').getContext('2d');
+    new Chart(opcionesCtx, {
+        type: 'bar',
+        data: opcionesData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            ...commonTooltipConfig,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: '#073B4C' },
+                    grid: { color: '#e0e0e0' }
+                },
+                x: {
+                    ticks: { color: '#073B4C' },
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                ...commonTooltipConfig.plugins,
+                legend: {
+                    position: 'top',
+                    labels: { color: '#073B4C' }
+                },
+                title: {
+                    display: true,
+                    text: 'Evaluación de Opciones de Mutuo Beneficio',
+                    color: '#073B4C',
+                    font: { size: 16 }
+                }
+            }
+        }
+    });
+    
+    const resultadosData = {
+        labels: ['Interrupciones en Clase', 'Entrega de Tareas', 'Calificación Promedio', 'Participación Positiva'],
+        datasets: [{
+            label: 'Antes de la Negociación',
+            data: [8, 3, 55, 2],
+            backgroundColor: '#FF6B6B',
+            borderColor: '#C45151',
+            borderWidth: 1
+        }, {
+            label: 'Después de la Negociación',
+            data: [1, 9, 80, 8],
+            backgroundColor: '#06D6A0',
+            borderColor: '#05A27A',
+            borderWidth: 1
+        }]
+    };
+    const resultadosCtx = document.getElementById('resultadosChart').getContext('2d');
+    new Chart(resultadosCtx, {
+        type: 'bar',
+        data: resultadosData,
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            ...commonTooltipConfig,
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: { color: '#073B4C' },
+                    grid: { color: '#e0e0e0' }
+                },
+                y: {
+                    ticks: { color: '#073B4C' },
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                ...commonTooltipConfig.plugins,
+                legend: {
+                    position: 'top',
+                    labels: { color: '#073B4C' }
+                }
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
+
             width: 1.25rem;
             height: 1.25rem;
             border-radius: 9999px;
@@ -180,9 +563,7 @@
                 <source src="https://raw.githubusercontent.com/Alvarezgzx/Manejo-de-conflictos-metodo-harvard/main/podcast_negociacion.mp3" type="audio/mpeg">
                 Tu navegador no soporta el elemento de audio.
             </audio>
-            <p class="text-sm text-gray-500 mt-3 italic">Recuerda reemplazar los marcadores en la URL del audio con tu información de GitHub.</p>
         </section>
-
         <footer class="bg-[#073B4C] text-white rounded-lg shadow-md p-6 mt-12">
             <h3 class="text-2xl font-bold text-center mb-4 text-[#FFD166]">Referencias</h3>
             <div class="text-sm text-center space-y-2 mb-6">
@@ -194,7 +575,7 @@
             <div class="border-t border-gray-500 pt-4 mt-4">
                 <h4 class="text-lg font-bold text-center text-[#FFD166] mb-2">Declaración de Uso</h4>
                 <p class="text-xs text-center italic text-gray-300">
-                    Este recurso infográfico fue elaborado por Jesús Ángel Álvarez González para la materia de Taller de Negociación y Manejo de Conflictos. Se utilizó asistencia de inteligencia artificial para la síntesis de información y el diseño visual, a partir de un análisis de literatura propio y las fuentes citadas. Su propósito es estrictamente educativo.
+                    Este recurso infográfico fue elaborado por Jesús Ángel Álvarez González. Se utilizó asistencia de inteligencia artificial para la síntesis de información, creación del podcast y el diseño visual, a partir de un análisis de literatura propio y las fuentes citadas. Su propósito es estrictamente educativo.
                 </p>
             </div>
         </footer>
