@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caso Práctico: Método Harvard de Negociación en el Aula</title>
+    <title>Resolución de Conflictos en el Aula: Método Harvard</title>
+
+    <meta name="description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/">
+    <meta property="og:title" content="Resolución de Conflictos en el Aula: Método Harvard">
+    <meta property="og:description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
+    <meta property="og:image" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/vista_previa.webp">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/">
+    <meta property="twitter:title" content="Resolución de Conflictos en el Aula: Método Harvard">
+    <meta property="twitter:description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
+    <meta property="twitter:image" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/vista_previa.webp">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -212,8 +227,7 @@
             </p>
             
             <div id="player-container" class="max-w-xl mx-auto mt-4 p-4 border rounded-lg bg-gray-50">
-                <!-- CAMBIO: El audio ahora apunta al enlace de descarga directa de Google Drive. -->
-                <audio id="podcast-audio" src="https://github.com/Alvarezgzx/Manejo-de-conflictos-metodo-harvard/releases/download/v1.0/podcast_negociacion.mp3"></audio>
+                <audio id="podcast-audio" src="podcast_negociación.mp3"></audio>
                 
                 <div class="flex items-center space-x-4">
                     <button id="play-pause-btn" class="bg-[#118AB2] text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl transition-transform hover:scale-110">
@@ -460,7 +474,7 @@
                         playerContainer.innerHTML = `
                             <div class="text-red-600 bg-red-100 border border-red-400 rounded p-4">
                                 <p class="font-bold">Error al reproducir</p>
-                                <p class="text-sm">No se pudo iniciar la reproducción. Google Drive puede estar bloqueando el acceso. Intenta usar un archivo local.</p>
+                                <p class="text-sm">No se pudo iniciar la reproducción. Asegúrate de que el archivo <strong>podcast_negociación.mp3</strong> sea un archivo de audio válido y no esté dañado.</p>
                             </div>
                         `;
                     });
@@ -501,7 +515,7 @@
             playerContainer.innerHTML = `
                 <div class="text-red-600 bg-red-100 border border-red-400 rounded p-4">
                     <p class="font-bold">Error al cargar el audio</p>
-                    <p class="text-sm">No se pudo cargar el audio desde Google Drive. Esto suele ocurrir por las restricciones de seguridad de Google. Se recomienda usar un archivo local.</p>
+                    <p class="text-sm">No se pudo cargar el archivo de audio. Por favor, asegúrate de que el archivo <strong>podcast_negociación.mp3</strong> exista en la misma carpeta que tu archivo HTML y que no esté dañado.</p>
                 </div>
             `;
         });
