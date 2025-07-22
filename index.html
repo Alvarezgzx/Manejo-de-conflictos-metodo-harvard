@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolución de Conflictos en el Aula: Método Harvard</title>
+    <title>Caso Práctico: Método Harvard de Negociación en el Aula</title>
 
-    <meta name="description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
-    
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/">
+    <meta property="og:url" content="https://candid-hamster-3faf32.netlify.app/">
     <meta property="og:title" content="Resolución de Conflictos en el Aula: Método Harvard">
-    <meta property="og:description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
-    <meta property="og:image" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/vista_previa.webp">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/">
+    <meta property="og:description" content="Una guía interactiva con un caso práctico y podcast para resolver conflictos usando el Método Harvard.">
+    <meta property="og:image" content="https://candid-hamster-3faf32.netlify.app/preview.png"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://candid-hamster-3faf32.netlify.app/">
     <meta property="twitter:title" content="Resolución de Conflictos en el Aula: Método Harvard">
-    <meta property="twitter:description" content="Una infografía interactiva que explica paso a paso cómo aplicar los 4 principios del Método Harvard para resolver un conflicto común en un salón de clases.">
-    <meta property="twitter:image" content="https://alvarezgzx.github.io/Manejo-de-conflictos-metodo-harvard/vista_previa.webp">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="twitter:description" content="Una guía interactiva con un caso práctico y podcast para resolver conflictos usando el Método Harvard.">
+    <meta property="twitter:image" content="https://candid-hamster-3faf32.netlify.app/preview.png"> <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +56,6 @@
             background-color: #FFD166;
             border: 3px solid #118AB2;
         }
-        /* Estilos para la barra de progreso del reproductor */
         input[type=range] {
             -webkit-appearance: none;
             appearance: none;
@@ -227,7 +220,7 @@
             </p>
             
             <div id="player-container" class="max-w-xl mx-auto mt-4 p-4 border rounded-lg bg-gray-50">
-                <audio id="podcast-audio" src="podcast_negociación.mp3"></audio>
+                <audio id="podcast-audio" src="https://github.com/Alvarezgzx/Manejo-de-conflictos-metodo-harvard/releases/download/v1.0/podcast_negociacion.mp3"></audio>
                 
                 <div class="flex items-center space-x-4">
                     <button id="play-pause-btn" class="bg-[#118AB2] text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl transition-transform hover:scale-110">
@@ -253,9 +246,9 @@
             <h3 class="text-2xl font-bold text-center mb-4 text-[#FFD166]">Referencias</h3>
             <div class="text-sm text-center space-y-2 mb-6">
                 <p>Fisher, R., Ury, W. L., & Patton, B. (2011). <i>Getting to yes: Negotiating agreement without giving in</i>. Penguin Books.</p>
-                <p>Formación y Estudios. (2020, 15 de mayo). <i>Método Harvard de Negociación (Explicado)</i> [Video]. YouTube. https://www.youtube.com/watch?v=IDj1OBG5Tpw</p>
+                <p>Formación y Estudios. (2020, 15 de mayo). <i>Método Harvard de Negociación (Explicado)</i> [Video]. YouTube. https://www.youtube.com/watch?v=video_id_correcto</p>
                 <p>Google. (2024). <i>Gemini</i> [Large language model]. https://gemini.google.com</p>
-                <p>Program on Negotiation at Harvard Law School. (s.f.). <i>Principled negotiation: Focus on interests to create value</i>. PON - Program on Negotiation at Harvard Law School. Recuperado el 21 de julio de 2025, de https://www.pon.harvard.edu/daily/negotiation-skills-daily/principled-negotiation-focus-interests-create-value/</p>
+                <p>Program on Negotiation at Harvard Law School. (s.f.). <i>Principled negotiation: Focus on interests to create value</i>. PON - Program on Negotiation at Harvard Law School. Recuperado el 21 de julio de 2024, de https://www.pon.harvard.edu/daily/negotiation-skills-daily/principled-negotiation-focus-interests-create-value/</p>
             </div>
             <div class="border-t border-gray-500 pt-4 mt-4">
                 <h4 class="text-lg font-bold text-center text-[#FFD166] mb-2">Declaración de Uso</h4>
@@ -445,7 +438,6 @@
         const durationEl = document.getElementById('duration');
         const playerContainer = document.getElementById('player-container');
 
-        // Función para dar formato al tiempo de segundos a MM:SS
         function formatTime(seconds) {
             if (isNaN(seconds)) return '0:00';
             const minutes = Math.floor(seconds / 60);
@@ -453,7 +445,6 @@
             return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
         }
 
-        // Actualizar el botón de Play/Pausa
         function updatePlayPauseIcon() {
             if (!audio || audio.paused) {
                 playIcon.classList.remove('hidden');
@@ -464,17 +455,17 @@
             }
         }
 
-        // Evento para el botón de Play/Pausa
         playPauseBtn.addEventListener('click', () => {
             if (audio.paused) {
                 const playPromise = audio.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
                         console.error("Error al intentar reproducir:", error);
+                        // Mensaje de error más genérico por si falla cualquier fuente
                         playerContainer.innerHTML = `
                             <div class="text-red-600 bg-red-100 border border-red-400 rounded p-4">
                                 <p class="font-bold">Error al reproducir</p>
-                                <p class="text-sm">No se pudo iniciar la reproducción. Asegúrate de que el archivo <strong>podcast_negociación.mp3</strong> sea un archivo de audio válido y no esté dañado.</p>
+                                <p class="text-sm">No se pudo iniciar la reproducción del audio. Por favor, revisa la consola para más detalles.</p>
                             </div>
                         `;
                     });
@@ -485,37 +476,33 @@
             updatePlayPauseIcon();
         });
 
-        // Actualizar la barra de progreso y el tiempo actual
         audio.addEventListener('timeupdate', () => {
             const progress = (audio.currentTime / audio.duration) * 100;
             progressBar.value = progress || 0;
             currentTimeEl.textContent = formatTime(audio.currentTime);
         });
 
-        // Permitir que el usuario se desplace por el audio con la barra
         progressBar.addEventListener('input', () => {
             const seekTime = (progressBar.value / 100) * audio.duration;
             audio.currentTime = seekTime;
         });
 
-        // Cuando el audio se carga, obtener la duración total
         audio.addEventListener('loadedmetadata', () => {
             durationEl.textContent = formatTime(audio.duration);
         });
         
-        // Si el audio termina, reiniciar el ícono a 'Play'
         audio.addEventListener('ended', () => {
             updatePlayPauseIcon();
             progressBar.value = 0;
             audio.currentTime = 0;
         });
         
-        // Manejo de errores de carga del audio
-        audio.addEventListener('error', () => {
+        audio.addEventListener('error', (e) => {
+            console.error('Error al cargar el audio:', e);
             playerContainer.innerHTML = `
                 <div class="text-red-600 bg-red-100 border border-red-400 rounded p-4">
                     <p class="font-bold">Error al cargar el audio</p>
-                    <p class="text-sm">No se pudo cargar el archivo de audio. Por favor, asegúrate de que el archivo <strong>podcast_negociación.mp3</strong> exista en la misma carpeta que tu archivo HTML y que no esté dañado.</p>
+                    <p class="text-sm">No se pudo cargar el archivo de audio. Verifica que la URL sea correcta y accesible.</p>
                 </div>
             `;
         });
