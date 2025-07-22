@@ -47,6 +47,40 @@
             background-color: #FFD166;
             border: 3px solid #118AB2;
         }
+        /* Estilos para la barra de progreso del reproductor */
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #e5e7eb;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        input[type=range]::-moz-range-track {
+            background: #e5e7eb;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -4px;
+            background-color: #118AB2;
+            height: 1.25rem;
+            width: 1.25rem;
+            border-radius: 9999px;
+        }
+        input[type=range]::-moz-range-thumb {
+            border: none;
+            border-radius: 9999px;
+            background-color: #118AB2;
+            height: 1.25rem;
+            width: 1.25rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -58,6 +92,7 @@
 
     <main class="container mx-auto p-4 md:p-8">
         
+        <!-- ... (resto del contenido de la página se mantiene igual) ... -->
         <section id="escenario" class="bg-white rounded-lg shadow-md p-6 mb-12 text-center">
             <h2 class="text-3xl font-bold text-[#073B4C] mb-4">El Conflicto: Tensión en la Clase de Historia</h2>
             <p class="text-lg mb-4 max-w-3xl mx-auto">
@@ -176,12 +211,35 @@
             <p class="text-lg mb-4 max-w-3xl mx-auto">
                 Escucha el podcast sobre negociación en el aula utilizando el Método Harvard.
             </p>
-            <audio controls class="w-full max-w-xl mx-auto mt-4">
-                <source src="podcast_negociacion.mp3" type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-             <p class="text-sm text-gray-500 mt-3 italic">Toma notas de los aspectos que consideres más importantes</p>
+            
+            <!-- CAMBIO: Reproductor de Audio Personalizado con JavaScript -->
+            <div class="max-w-xl mx-auto mt-4 p-4 border rounded-lg bg-gray-50">
+                <!-- El elemento de audio está oculto. Lo controlamos con JavaScript -->
+                <!-- REEMPLAZA EL SRC con tu enlace de descarga directa de Google Drive -->
+                <audio id="podcast-audio" src="https://drive.google.com/uc?export=download&id=1D07AwvB3TOLXRcm9KAGqn8eKnB736Hq8"></audio>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="play-pause-btn" class="bg-[#118AB2] text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl transition-transform hover:scale-110">
+                        <!-- Ícono de Play SVG (Actualizado) -->
+                        <svg id="play-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.286L7.279 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                        </svg>
+                        <!-- Ícono de Pausa SVG (oculto por defecto) -->
+                        <svg id="pause-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M5.75 4.5a.75.75 0 0 0-.75.75v10.5a.75.75 0 0 0 1.5 0V5.25a.75.75 0 0 0-.75-.75zm8.5 0a.75.75 0 0 0-.75.75v10.5a.75.75 0 0 0 1.5 0V5.25a.75.75 0 0 0-.75-.75z"></path></svg>
+                    </button>
+                    <div class="w-full">
+                        <input type="range" id="progress-bar" value="0" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span id="current-time">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-500 mt-3 italic">Usa los controles para reproducir el episodio.</p>
         </section>
+
         <footer class="bg-[#073B4C] text-white rounded-lg shadow-md p-6 mt-12">
             <h3 class="text-2xl font-bold text-center mb-4 text-[#FFD166]">Referencias</h3>
             <div class="text-sm text-center space-y-2 mb-6">
@@ -201,6 +259,7 @@
     </main>
 
 <script>
+    // --- GRÁFICAS (sin cambios) ---
     const tooltipTitleCallback = (tooltipItems) => {
         const item = tooltipItems[0];
         let label = item.chart.data.labels[item.dataIndex];
@@ -209,7 +268,6 @@
         }
         return label;
     };
-
     const commonTooltipConfig = {
         plugins: {
             tooltip: {
@@ -225,7 +283,6 @@
             }
         }
     };
-    
     function wrapLabels(label, maxLength) {
         if (typeof label !== 'string' || label.length <= maxLength) {
             return label;
@@ -243,7 +300,6 @@
         lines.push(currentLine.trim());
         return lines;
     }
-
     const interesesData = {
         labels: ['Miedo a reprobar', 'Vergüenza de preguntar', 'Presión del equipo deportivo', 'Frustración con el material'],
         datasets: [{
@@ -270,7 +326,6 @@
             }
         }
     });
-
     const opcionesLabels = [
         'Ignorar el problema', 
         'Castigo inmediato', 
@@ -278,7 +333,6 @@
         ['Plan de estudio', 'personalizado'],
         ['Comunicación', 'discreta en clase']
     ].map(l => Array.isArray(l) ? l : wrapLabels(l, 16));
-
     const opcionesData = {
         labels: opcionesLabels,
         datasets: [{
@@ -325,7 +379,6 @@
             }
         }
     });
-    
     const resultadosData = {
         labels: ['Interrupciones en Clase', 'Entrega de Tareas', 'Calificación Promedio', 'Participación Positiva'],
         datasets: [{
@@ -370,6 +423,71 @@
                 }
             }
         }
+    });
+
+    // --- LÓGICA DEL REPRODUCTOR DE AUDIO PERSONALIZADO ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('podcast-audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+
+        // Función para dar formato al tiempo de segundos a MM:SS
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Actualizar el botón de Play/Pausa
+        function updatePlayPauseIcon() {
+            if (audio.paused) {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            } else {
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }
+        }
+
+        // Evento para el botón de Play/Pausa
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+            updatePlayPauseIcon();
+        });
+
+        // Actualizar la barra de progreso y el tiempo actual
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.value = progress || 0;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        // Permitir que el usuario se desplace por el audio con la barra
+        progressBar.addEventListener('input', () => {
+            const seekTime = (progressBar.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        // Cuando el audio se carga, obtener la duración total
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+        
+        // Si el audio termina, reiniciar el ícono a 'Play'
+        audio.addEventListener('ended', () => {
+            updatePlayPauseIcon();
+            progressBar.value = 0;
+            audio.currentTime = 0;
+        });
     });
 
 </script>
